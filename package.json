@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "özer yılmaztekin",
   "license": "ISC",
   "devDependencies": {
     "babel-generator": "^6.26.1",

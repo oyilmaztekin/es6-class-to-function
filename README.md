@@ -3,6 +3,10 @@
 It is a tiny example of Babel ES6 to ES5 converter.  
 
  1. Parses the code and converts to ast
- 2.  Transforming the code in AST data structure
+ 2. Transforming the code in AST data structure
  3. Generates codes from transformed AST
 
+**Dependencies**
+1. Babylon
+2. Babel-traverse
+3. Babel-Generator
