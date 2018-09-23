@@ -15,7 +15,13 @@ const generateCode = require('./generateCode.js')
           method1(){
             return this.a + this.b + this.c;
         }
-      }`
+      }
+      class Deneme2{
+        method2(){
+            return 'hello from ast'
+          }
+      }
+      `
 
     const ast = babylon.parse(code);
     let classM = {};
@@ -52,7 +58,7 @@ const generateCode = require('./generateCode.js')
                 outputFunc= babelGenerator.default(classC, { /* options */ }, code);
               }
 
-              if(node.kind === "method") {
+              if(path.parentPath.parent.id.name === className && node.kind === "method") {
                 classM = path.node;
                 methodScope = classM.body;
                 
