@@ -20,8 +20,7 @@ const generateCode = require('./generateCode.js')
         method2(){
             return 'hello from ast'
           }
-      }
-      `
+      }`
 
     const ast = babylon.parse(code);
     let classM = {};
