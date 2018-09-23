@@ -68,11 +68,12 @@ const generateCode = require('./generateCode.js')
                 params = params.toString()
                 protoAst.program.body[0].expression.right.params[0].name = params
                 methodCode = babelGenerator.default(protoAst, { /* options */ }, methodCode);
+
+                if(outputFunc.code && methodCode.code) {
+                  generateCode(outputFunc.code, methodCode.code)
+                }
               }
 
-              if(outputFunc.code && methodCode.code) {
-                generateCode(outputFunc.code, methodCode.code)
-              }
             } catch (Error) {
               console.log(Error)
             }
