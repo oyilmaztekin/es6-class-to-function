@@ -23,17 +23,16 @@ const generateCode = require('./generateCode.js')
       }`
 
     const ast = babylon.parse(code);
-    let classM = {};
     let classC = {};
     let outputFunc;
+    let params = [];
+    let className = "";
+
     
     // Prototype method templates
     let protoFunc = `Deneme.prototype.methodName = function(param){}`
     let protoAst = babylon.parse(protoFunc)
-
-    //function children
-    let params = [];
-    let className = "";
+    let classM = {};
     let methodScope = {};
     let methodCode = {}
 
@@ -47,7 +46,6 @@ const generateCode = require('./generateCode.js')
                 params = classC.params.map(el => el.name) 
                 classC.key.name = `function ${className}`
                 outputFunc= babelGenerator.default(classC, { /* options */ }, code);
-                // generateCode(outputFunc.code)
               }
 
               if(path.parentPath.parent.id.name === className && node.kind === "method") {
