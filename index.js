@@ -38,14 +38,6 @@ const generateCode = require('./generateCode.js')
     let methodCode = {}
 
     traverse(ast, {
-        Program: function(path) {
-          var node = path.container
-          try {
-            //token toplama işlemi
-          } catch (Error) {
-            console.log(Error)
-          }
-        },
         ClassMethod: function(path) {
             const node = path.node
             try {
@@ -55,6 +47,7 @@ const generateCode = require('./generateCode.js')
                 params = classC.params.map(el => el.name) 
                 classC.key.name = `function ${className}`
                 outputFunc= babelGenerator.default(classC, { /* options */ }, code);
+                // generateCode(outputFunc.code)
               }
 
               if(path.parentPath.parent.id.name === className && node.kind === "method") {
